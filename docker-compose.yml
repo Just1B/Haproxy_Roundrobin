@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+
+  haproxy:
+    build: ./haproxy/
+    ports:
+      - '8080:8080'
+    volumes:
+      - "./haproxy:/usr/local/etc/haproxy"
+
+  nginx1:
+    image: nginx:stable-alpine
+    volumes:
+      - "./nginx1:/usr/share/nginx/html"
+
+  nginx2:
+    image: nginx:stable-alpine
+    volumes:
+      - "./nginx2:/usr/share/nginx/html"
+
+  nginx3:
+    image: nginx:stable-alpine
+    volumes:
+      - "./nginx3:/usr/share/nginx/html"
